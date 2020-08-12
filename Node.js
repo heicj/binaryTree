@@ -7,23 +7,35 @@ export default class Node{
   }
 
   insert(node){
-    // if(this.node.word == node.word) {
-    //   this.count++;
-    //   return
-    // }
-
     //compare which word comes first
     let n = this.word.localeCompare(node.word)
 
-    if(n < 0){
-      //this comes before node word 
+    if(n < 0){ //this node comes before node checking
       (this.right == undefined) ? this.right = node : this.right.insert(node)
-    }else if (n > 0){
-      //node word comes before
+    }else if (n > 0){ //node checking comes before this node
       (this.left == undefined) ? this.left = node : this.left.insert(node)
-    }else{
+    }else{ //words are the same
       this.count++;
-      //equal
+      }
+    }
+
+  get(word){
+    console.log('checking node')
+    if(this.left == undefined && this.right == undefined && this.word != word) return -1;
+
+    let response = {}
+    if(word == this.word){
+      response.word = this.word;
+      response.count = this.count;
+      return response
+    }else{
+      let n = this.word.localeCompare(word)
+
+      if(n < 0){ //this node comes before node checking
+        return this.right.get(word)
+      }else if (n > 0){ //node checking comes before this node
+        return this.left.get(word);
       }
     }
   }
+}

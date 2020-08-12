@@ -1,8 +1,7 @@
 import Node from '/Node.js';
-let str = "This this, is a sample   sentence! Used - to  test?  binary tree sorting.";
-// str.toLowerCase();
-// let wordArr = str.split(' ')
-// console.log(wordArr)
+import { txt } from '/text.js'
+let str = txt;
+// let str = "this is a test string"
 let tree;
 
 function strToWordArr(str){
@@ -19,7 +18,6 @@ class Tree{
     this.root = null;
   }
 
-  
   insert(node){
     if(this.root == null){
       this.root = node;
@@ -28,13 +26,16 @@ class Tree{
     }
   }
 
+  get(word){
+    return (this.root == null) ? undefined : this.root.get(word) 
+  };
 }
 
 tree = new Tree()
 // console.log(tree)
 
 let wordArr = strToWordArr(str);
-
+console.log('length of array', wordArr.length)
 for(let i = 0; i < wordArr.length; i++){
   let word = wordArr[i];
   let n = new Node(word)
@@ -42,4 +43,5 @@ for(let i = 0; i < wordArr.length; i++){
 }
 
 console.log(tree)
+console.log(tree.get('a'))
 
