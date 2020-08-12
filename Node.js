@@ -21,15 +21,16 @@ export default class Node{
 
   get(word){
     console.log('checking node')
-    if(this.left == undefined && this.right == undefined && this.word != word) return -1;
+    let n = this.word.localeCompare(word, 'en', { sensitivity: 'base' })
+
+    if(this.left == undefined && this.right == undefined && n != 0) return -1;
 
     let response = {}
-    if(word == this.word){
+    if(n == 0){
       response.word = this.word;
       response.count = this.count;
       return response
     }else{
-      let n = this.word.localeCompare(word)
 
       if(n < 0){ //this node comes before node checking
         return this.right.get(word)
