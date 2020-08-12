@@ -1,7 +1,6 @@
 import Node from '/Node.js';
 import { txt } from '/text.js'
 let str = txt;
-// let str = "this is a test string"
 let tree;
 
 function strToWordArr(str){
@@ -32,7 +31,6 @@ class Tree{
 }
 
 tree = new Tree()
-// console.log(tree)
 
 let wordArr = strToWordArr(str);
 console.log('length of array', wordArr.length)
@@ -43,5 +41,5 @@ for(let i = 0; i < wordArr.length; i++){
 }
 
 console.log(tree)
-console.log(tree.get('a'))
+console.log(tree.get('my'))
 
