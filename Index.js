@@ -4,6 +4,12 @@ import Tree from '/Tree.js';
 const form = document.getElementById('form');
 const resultP = document.getElementById('result')
 
+let nodesVisited = 0;
+
+function nodecounter(){
+  nodesVisited++;
+}
+
 form.addEventListener('submit', (e)=>{
   e.preventDefault();
   let tree = new Tree()
@@ -14,18 +20,21 @@ form.addEventListener('submit', (e)=>{
 
   for(let i = 0; i < wordArr.length; i++){
     let word = wordArr[i];
-    let n = new Node(word)
+    let n = new Node(word, nodecounter)
     tree.insert(n);
   }
 
   let r = tree.get(word) //returns -1 if tree doesn't contain word
+  let c = nodesVisited;
   if(r != -1){
-    resultP.innerHTML = `The word "${r.word}" appears ${r.count} times in the text of ${wordArr.length} words.`
+    resultP.innerHTML = `The word "${r.word}" appears ${r.count} times in the text of ${wordArr.length} words. Binary tree checked ${c} nodes to find result.`
   }else{
     resultP.innerHTML = `The word "${word}" is not in the text.`
   }
-  console.log(wordArr.length)
-  console.log(tree.get(word))
+  // console.log(wordArr.length)
+  // console.log(tree.get(word))
+  // console.log('nodes checked', nodesVisited)
+  nodesVisited = 0;
 
 })
 

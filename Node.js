@@ -1,9 +1,10 @@
 export default class Node{
-  constructor(word){
+  constructor(word, counter){
     this.count = 1;
     this.word = word;
     this.left = undefined;
     this.right = undefined;
+    this.counter = counter;
   }
 
   insert(node){
@@ -21,6 +22,7 @@ export default class Node{
 
   get(word){
     console.log('checking node')
+    this.counter();
     let n = this.word.localeCompare(word, 'en', { sensitivity: 'base' })
 
     let response = {}
