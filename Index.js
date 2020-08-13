@@ -31,12 +31,9 @@ form.addEventListener('submit', (e)=>{
   }else{
     resultP.innerHTML = `The word "${word}" is not in the text.`
   }
-  // console.log(wordArr.length)
-  // console.log(tree.get(word))
-  // console.log('nodes checked', nodesVisited)
+  
   nodesVisited = 0;
-
-})
+});
 
 function strToWordArr(str){
   let punctuationless = str.replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g,"");
