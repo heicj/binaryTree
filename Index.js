@@ -1,7 +1,8 @@
 import Node from '/Node.js';
 import Tree from '/Tree.js';
 
-const form = document.getElementById('form')
+const form = document.getElementById('form');
+const resultP = document.getElementById('result')
 
 form.addEventListener('submit', (e)=>{
   e.preventDefault();
@@ -17,6 +18,12 @@ form.addEventListener('submit', (e)=>{
     tree.insert(n);
   }
 
+  let r = tree.get(word) //returns -1 if tree doesn't contain word
+  if(r != -1){
+    resultP.innerHTML = `The word "${r.word}" appears ${r.count} times in the text of ${wordArr.length} words.`
+  }else{
+    resultP.innerHTML = `The word "${word}" is not in the text.`
+  }
   console.log(wordArr.length)
   console.log(tree.get(word))
 

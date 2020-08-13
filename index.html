@@ -4,20 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="style.css" rel="stylesheet">
   <title>binary tree</title>
 </head>
 <body>
   <form id="form">
-    <label for="text">Text to use for search using binary tree.</label>
-    <textarea id="textarea" name="text" placeholder="Enter text here"></textarea>
-    <label for="word">Enter word to search for:</label>
-    <input type="text" name="word" placeholder="word here">
-    <button>Check</button>
+    <section id="textAreaSection">
+      <label for="text">Text to use for search using binary tree.</label>
+      <textarea id="textarea" name="text" placeholder="Enter text here"></textarea>
+    </section>
+
+    <section id="wordSection">
+      <label for="word">Enter word to search for:</label>
+      <input type="text" name="word" placeholder="word here">
+    </section>
+
+    <div id="buttonContainer">
+      <button>SEARCH</button>
+    </div>
   </form>
 
-  <div>
-    <p>word found:</p><p id="wordResult">--</p>
-    <p>word count:</p><p id="wordResultCount">--</p>
+  <div id="resultContainer">
+   <p>Result:</p><p id="result">--</p>
   </div>
   
   <script type="module" src= "./Node.js"></script>
