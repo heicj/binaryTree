@@ -23,20 +23,17 @@ export default class Node{
     console.log('checking node')
     let n = this.word.localeCompare(word, 'en', { sensitivity: 'base' })
 
-    if(this.left == undefined && this.right == undefined && n != 0) return -1;
-
     let response = {}
     if(n == 0){
       response.word = this.word;
       response.count = this.count;
       return response
-    }else{
-
-      if(n < 0){ //this node comes before node checking
+    }else if(n < 0 && this.right != undefined){ //this node comes before node checking
         return this.right.get(word)
-      }else if (n > 0){ //node checking comes before this node
+    }else if (n > 0 && this.left != undefined){ //node checking comes before this node
         return this.left.get(word);
-      }
+    }else{
+      return -1;
     }
   }
 }
